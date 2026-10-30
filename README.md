@@ -1,73 +1,84 @@
-# React + TypeScript + Vite
+# Page Replacement Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A visual simulation tool for understanding how operating systems manage memory pages, handle page faults, and evaluate page replacement algorithms.
 
-Currently, two official plugins are available:
+## Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The **Page Replacement Simulator** demonstrates how an operating system manages limited physical memory when processes request pages that are not currently loaded into memory. It simulates page replacement strategies, tracks page faults, and helps compare their performance using a given reference string and frame allocation.
 
-## React Compiler
+Designed as an educational tool, the project makes virtual memory concepts easier to understand through step-by-step simulation and performance analysis.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
 
-## Expanding the ESLint configuration
+- **Reference String Input:** Provide a custom sequence of page references to simulate memory access patterns.
+- **Frame Allocation:** Configure the number of available page frames.
+- **Algorithm Simulation:** Execute supported page replacement algorithms and observe how pages enter and leave memory.
+- **Page Fault Tracking:** Identify page faults and calculate the total number of faults during execution.
+- **Performance Comparison:** Compare the results of supported algorithms using the same reference string and frame configuration.
+- **Interactive Visualization:** Follow the simulation to understand page hits, page faults, and replacement decisions.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Algorithms
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The simulator can include the following algorithms, depending on the implementations available in the project:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **FIFO (First-In, First-Out):** Replaces the page that entered memory earliest.
+- **LRU (Least Recently Used):** Replaces the page that has not been used for the longest time.
+- **Optimal Page Replacement:** Replaces the page whose next use is farthest in the future.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Concepts Demonstrated
+
+- Operating System Memory Management
+- Virtual Memory and Paging
+- Page Faults and Page Hits
+- Page Replacement Strategies
+- Algorithm Analysis and Performance Comparison
+
+## Tech Stack
+
+Add the technologies used in the implementation:
+
+- **Frontend:** [HTML, CSS, JavaScript / React / other]
+- **Backend:** [Python / Java / C++ / not applicable]
+- **Tools:** Git, GitHub
+
+## Getting Started
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Navigate to the project directory
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd <project-folder>
 ```
+
+### 3. Run the application
+
+Follow the execution instructions for the technologies used in the project. For a browser-based application, open the appropriate entry-point file or start the development server as specified by the project setup.
+
+## How It Works
+
+1. Enter a page reference string.
+2. Specify the number of available memory frames.
+3. Select a supported replacement algorithm.
+4. Run the simulation to observe page accesses and replacement decisions.
+5. Review the resulting page faults and compare algorithm performance.
+
+## Learning Outcomes
+
+This project explores how operating systems allocate limited memory resources and manage page requests. It also demonstrates the practical differences between replacement strategies and how their behavior affects page fault rates under different access patterns.
+
+## Future Enhancements
+
+- Add more page replacement algorithms.
+- Introduce side-by-side algorithm comparisons.
+- Improve step-by-step memory state visualization.
+- Add charts for page fault comparisons.
+- Support downloadable simulation results.
+
+## Contributors
+
+Developed as an academic project to explore operating system memory management and page replacement strategies.
